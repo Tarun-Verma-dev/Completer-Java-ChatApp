@@ -1,0 +1,24 @@
+1. open cmd
+2. mysqlsh
+3. \sql
+4. \connect avnadmin@mysql-3aefbb56-chatapp1data.k.aivencloud.com:17429
+5. AVNS_KqnX96-OZOc5ab4CSVK
+
+// database opens in cmd
+
+// schema 
+ 
+CREATE TABLE users (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(200) UNIQUE NOT NULL,
+    email VARCHAR(200) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    status ENUM('ACTIVE', 'BLOCKED') DEFAULT 'ACTIVE',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+ALTER TABLE users 
+ADD COLUMN created_at DATETIME(6) NULL;
+
+
